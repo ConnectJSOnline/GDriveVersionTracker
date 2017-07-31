@@ -1,12 +1,24 @@
-﻿<Window x:Class="Main.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Main"
+        xmlns:Data="clr-namespace:Google.Apis.Drive.v3.Data;assembly=Google.Apis.Drive.v3" x:Name="winMain" x:Class="Main.MainWindow"
         mc:Ignorable="d"
-        Title="Tracker Updates" Height="350" Width="525" ResizeMode="NoResize" Topmost="True">
+        Title="Tracker Updates" Height="350" Width="376.852" ResizeMode="CanMinimize" Topmost="True" Loaded="winMain_Loaded" Icon="if_Infinity_endless_eternity_maths_mathematical_shows_loop_1886956.ico" WindowStartupLocation="CenterScreen" Unloaded="winMain_Unloaded">
     <Grid>
-        
+        <ListView x:Name="lstRevisions" Margin="10,10,0,9.8" HorizontalAlignment="Left" Width="350" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <TextBlock Text="{Binding ETag}" FontWeight="Bold" Width="150" />
+                        <TextBlock Text=" by "  />
+                        <TextBlock Text="{Binding  LastModifyingUser.DisplayName}"  />
+                    </WrapPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
     </Grid>
 </Window>

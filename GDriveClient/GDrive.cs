@@ -82,7 +82,7 @@ namespace GDriveClient
                 var RevisionRequest = driveService.Revisions.List(fileID);
                 RevisionRequest.Fields = "*";
                 RevisionList changes = RevisionRequest.Execute();
-                return changes.Revisions.OrderByDescending(m=>int.Parse(m.Id)).ToList();
+                return changes.Revisions.OrderBy(m=>int.Parse(m.Id)).ToList();
             }
             return new List<Revision>();
         }
@@ -91,7 +91,7 @@ namespace GDriveClient
         {
             if (driveService != null)
             {
-                return GetRevisions(fileID).FirstOrDefault();
+                return GetRevisions(fileID).LastOrDefault();
             }
             return null;
         }

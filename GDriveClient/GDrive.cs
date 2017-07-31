@@ -11,6 +11,7 @@ using Google.Apis.Auth.OAuth2;
 using Google.Apis.Services;
 using System.Security.Cryptography;
 using Google.Apis.Drive.v3.Data;
+using System.Xml;
 
 namespace GDriveClient
 {
@@ -26,12 +27,17 @@ namespace GDriveClient
         public SheetsService sheetService { get; set; }
         public GDrive(ServiceType service)
         {
+            XmlDocument doc = new XmlDocument();
+            doc.Load(Directory.GetCurrentDirectory() + "\\conf.xml");
+            string ServiceAccount = doc.GetElementsByTagName("service-account")[0].InnerText.Trim();
+            string APIKey = doc.GetElementsByTagName("api-key")[0].InnerText.Trim();
+
             var certificate = new X509Certificate2(Directory.GetCurrentDirectory() + "\\ConnectJS-4f5b836be640.p12", "notasecret", X509KeyStorageFlags.Exportable);
             if (service == ServiceType.Drive)
             {
                 string[] scopes = new string[] { DriveService.Scope.Drive };
 
-                var credential = new ServiceAccountCredential(new ServiceAccountCredential.Initializer("connectjs-admin@connectjs-175408.iam.gserviceaccount.com")
+                var credential = new ServiceAccountCredential(new ServiceAccountCredential.Initializer(ServiceAccount)
                 {
                     Scopes = scopes
                 }.FromCertificate(certificate));
@@ -42,7 +48,7 @@ namespace GDriveClient
                 {
                     HttpClientInitializer = credential,
                     ApplicationName = "ConnectJS",
-                    ApiKey = "AIzaSyAseLqm2MH01eTiFbrEE_9WeY5lkl7TcDQ"
+                    ApiKey = APIKey
                 });
 
             }
@@ -51,7 +57,7 @@ namespace GDriveClient
             {
                 string[] scopes = new string[] { SheetsService.Scope.Spreadsheets, SheetsService.Scope.Drive };
 
-                var credential = new ServiceAccountCredential(new ServiceAccountCredential.Initializer("connectjs-admin@connectjs-175408.iam.gserviceaccount.com")
+                var credential = new ServiceAccountCredential(new ServiceAccountCredential.Initializer(ServiceAccount)
                 {
                     Scopes = scopes
                 }.FromCertificate(certificate));
@@ -60,7 +66,7 @@ namespace GDriveClient
                 {
                     HttpClientInitializer = credential,
                     ApplicationName = "ConnectJS",
-                    ApiKey = "AIzaSyAseLqm2MH01eTiFbrEE_9WeY5lkl7TcDQ"
+                    ApiKey = APIKey
                 });
 
 

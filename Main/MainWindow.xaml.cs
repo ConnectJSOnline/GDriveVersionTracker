@@ -21,6 +21,7 @@ namespace Main
         GDrive g;
         ObservableCollection<Revision> FileRevisions;
         winNotify win;
+        int delay = 0;
 
         public delegate void UpdateRevisionListCallback(Revision item);
         public void UpdateRevisionList(Revision item)
@@ -46,6 +47,7 @@ namespace Main
             XmlDocument doc = new XmlDocument();
             doc.Load("conf.xml");
             fileID = doc.GetElementsByTagName("file-id")[0].InnerText.Trim();
+            delay = int.Parse(doc.GetElementsByTagName("delay")[0].InnerText.Trim());
         }
 
         private void winMain_Loaded(object sender, RoutedEventArgs e)
@@ -80,7 +82,7 @@ namespace Main
                             this.lstRevisions.Dispatcher.Invoke(new UpdateRevisionListCallback(this.UpdateRevisionList), r);
                         }
                     }
-                    System.Threading.Thread.Sleep(2000);
+                    System.Threading.Thread.Sleep(delay);
                 }
             });
         }

@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GDriveVersionTracker", "GDriveVersionTracker\GDriveVersionTracker.csproj", "{30B68113-77B2-44B1-B4A7-59BA7FD6F28A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GDriveClient", "GDriveClient\GDriveClient.csproj", "{4D1D29F5-D05C-4F6D-AC93-D69999336AE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Main", "Main\Main.csproj", "{A808FD39-FE5F-4D92-8E3B-3FFF2FB6FCDB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{30B68113-77B2-44B1-B4A7-59BA7FD6F28A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30B68113-77B2-44B1-B4A7-59BA7FD6F28A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30B68113-77B2-44B1-B4A7-59BA7FD6F28A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30B68113-77B2-44B1-B4A7-59BA7FD6F28A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D1D29F5-D05C-4F6D-AC93-D69999336AE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D1D29F5-D05C-4F6D-AC93-D69999336AE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D1D29F5-D05C-4F6D-AC93-D69999336AE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D1D29F5-D05C-4F6D-AC93-D69999336AE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A808FD39-FE5F-4D92-8E3B-3FFF2FB6FCDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A808FD39-FE5F-4D92-8E3B-3FFF2FB6FCDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A808FD39-FE5F-4D92-8E3B-3FFF2FB6FCDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A808FD39-FE5F-4D92-8E3B-3FFF2FB6FCDB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
